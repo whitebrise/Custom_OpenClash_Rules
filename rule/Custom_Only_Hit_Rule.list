@@ -1,0 +1,9 @@
+# NAME: Custom_Only_Hit_Rule
+# AUTHOR: whitebrise
+# REPO: https://github.com/whitebrise/Custom_OpenClash_Rules
+# 仅命中规则才代理的设备，来自个人收集
+
+# 源设备
+SRC-IP-CIDR,192.168.88.50,no-resolve
+SRC-IP-CIDR,192.168.88.51,no-resolve
+SRC-IP-CIDR,192.168.88.192,no-resolve
