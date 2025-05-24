@@ -2,50 +2,47 @@
 
 # 定义变量
 REPO_API_URL="https://api.github.com/repos/vernesong/OpenClash/contents/dev?ref=package"
-RAW_FILE_PREFIX="https://gh-proxy.com/https://gh-proxy.com/https://raw.githubusercontent.com/vernesong/OpenClash/package/dev"
-TEMP_FILE="openclash.ipk"
+RAW_FILE_PREFIX="https://raw.githubusercontent.com/vernesong/OpenClash/package/dev"
+TEMP_FILE="openclash.apk"
 
-# 获取 JSON 数据并解析 .ipk 文件名
-echo "正在获取文件信息..."
+# 获取 JSON 数据并解析 .apk 文件名
+echo "正在获取 dev 版本文件信息..."
 JSON_OUTPUT=$(curl -s $REPO_API_URL)
-IPK_FILE=$(echo "$JSON_OUTPUT" | awk -F'"' '/"name":/ && /.ipk"/ {print $4}' | head -n 1)
+APK_FILE=$(echo "$JSON_OUTPUT" | awk -F'"' '/"name":/ && /.apk"/ {print $4}' | head -n 1)
 
 # 打印调试信息
 echo "API 输出内容:"
 echo "$JSON_OUTPUT"
-echo "解析到的文件名: $IPK_FILE"
+echo "解析到的文件名: $APK_FILE"
 
 # 检查是否成功获取文件名
-if [ -z "$IPK_FILE" ]; then
-  echo "未找到 .ipk 文件，请检查目录或网络连接。"
+if [ -z "$APK_FILE" ]; then
+  echo "未找到 .apk 文件，请检查目录或网络连接。"
   exit 1
 fi
 
 # 构造下载链接
-DOWNLOAD_URL="$RAW_FILE_PREFIX/$IPK_FILE"
+DOWNLOAD_URL="$RAW_FILE_PREFIX/$APK_FILE"
 
-# 下载 .ipk 文件
-echo "正在下载 $IPK_FILE..."
+# 下载 .apk 文件
+echo "正在下载 dev 版本 $APK_FILE..."
 wget -O $TEMP_FILE $DOWNLOAD_URL
 if [ $? -ne 0 ]; then
   echo "下载失败，请检查网络连接或下载链接：$DOWNLOAD_URL"
   exit 1
 fi
 
-# 安装 .ipk 文件
-echo "正在安装 $IPK_FILE..."
-opkg upgrade $TEMP_FILE --force-reinstall
+# 安装 .apk 文件
+echo "正在安装 $APK_FILE..."
+apk add $TEMP_FILE --allow-untrusted
 if [ $? -ne 0 ]; then
-  echo "安装失败，请检查系统环境。"
+  echo "OpenClash Dev 安装失败，请检查系统环境。"
   rm -f $TEMP_FILE
   exit 1
 fi
 
-# 清理临时文件
-rm -f $TEMP_FILE
-echo "OpenClash 最新 dev 版本安装完成！"
-
-echo "正在更新配置，切换为 Dev 版本并开启“跳过安全路径检查”.."
+# 执行配置命令
+echo "正在更新配置，切换为 Dev 版本并开启“跳过安全路径检查”..."
 uci set openclash.config.release_branch=dev
 uci set openclash.config.skip_safe_path_check=1
 uci commit openclash
@@ -55,6 +52,10 @@ if [ $? -ne 0 ]; then
 fi
 echo "配置更新完成！"
 
+# 清理临时文件
+rm -f $TEMP_FILE
+echo "OpenClash 最新 dev 版本安装完成！"
+
 # 开始更新 Meta 内核
 echo "开始更新 Meta 内核..."
 /usr/share/openclash/openclash_core.sh
@@ -62,8 +63,6 @@ if [ $? -ne 0 ]; then
   echo "Meta 内核更新失败，请检查日志。"
   exit 1
 fi
-
-# 完成更新提示
 echo "Meta 内核更新完成！"
 
 # 开始更新 GeoIP 数据库
