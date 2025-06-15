@@ -7,4 +7,3 @@
 SRC-IP-CIDR,192.168.88.50/32,no-resolve
 SRC-IP-CIDR,192.168.88.51/32,no-resolve
 SRC-IP-CIDR,192.168.88.182/32,no-resolve
-SRC-IP-CIDR,192.168.88.16/32,no-resolve
