@@ -36,7 +36,9 @@ OpenClash 无疑是 OpenWrt 中最强大的科学上网软件，它可以实现�
 
 \>> Telegram Channel: [Custom_OpenClash_Rules | 通知频道](https://t.me/custom_openclash_rules)  
 
-\>> Telegram Group: [Custom_OpenClash_Rules | 交流群](https://t.me/custom_openclash_rules_group) 
+\>> Telegram Group: [Custom_OpenClash_Rules | 交流群](https://t.me/custom_openclash_rules_group)   
+
+维护者的 GitHub 账号曾被误封过，连带本仓库一同被 404。请加入通知频道谨防失联。  
 
 如遇问题，前请先阅读以下内容：
 
@@ -287,15 +289,16 @@ Clash Dash 是一款在 iOS 下使用原生 SwiftUI 开发的 OpenClash/MihomoTP
 
 ***
 
-## 许可		
+## 许可  
+
 [![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)
 * CC-BY-SA-4.0  
 
 ***
 
-## 星标记录
+## 星标记录  
 
-<a href="https://star-history.com/#Aethersailor/Custom_OpenClash_Rules&Date">
+<a href="https://www.star-history.com/#Aethersailor/Custom_OpenClash_Rules&Date">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Aethersailor/Custom_OpenClash_Rules&type=Date&theme=dark" />
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Aethersailor/Custom_OpenClash_Rules&type=Date" />
@@ -308,8 +311,14 @@ Clash Dash 是一款在 iOS 下使用原生 SwiftUI 开发的 OpenClash/MihomoTP
 ![Alt](https://repobeats.axiom.co/api/embed/0d7d55da94670a4766aa0fb8ccd03c7abc9e8464.svg "Repobeats analytics image")  
 
 
-## 访问记录
+## 访问记录  
 
 ![:访问数](https://count.getloli.com/@:Custom_OpenClash_Rules?theme=sketch-1)  
 
 2025年2月开始统计  
+
+## 广告  
+
+**DartNode 免费 VPS**  
+
+[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
