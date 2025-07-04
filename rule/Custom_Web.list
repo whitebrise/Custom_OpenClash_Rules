@@ -1,0 +1,8 @@
+# NAME: Custom_Only_Hit_Rule
+# AUTHOR: whitebrise
+# REPO: https://github.com/whitebrise/Custom_OpenClash_Rules
+# 仅命中规则才代理的设备，来自个人收集
+
+# 访问端口
+DST-PORT,80
+DST-PORT,443
